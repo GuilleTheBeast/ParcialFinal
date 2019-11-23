@@ -1,0 +1,71 @@
+
+<% include partials/_header %>
+    <div class="container">
+<div class="row">
+
+<div class="col-md-5">
+    <div class="card">
+        <div class="card-body">
+            <form action="/add" method="POST" >
+                <div class="form-group">
+                    <input type="text" name="nombre" value="" placeholder="nombre" class="form-control" required>
+                </div>
+                <div class="form-group">
+                        <input type="date" name="estreno" value="" placeholder="fecha estreno" class="form-control" required>
+                </div>
+                <div class="form-group">
+                        <input type="number" name="taquilla" value="" placeholder="ganancia taquilla" class="form-control" required>
+                </div>
+                <div class="form-group">
+                        <input type="text" name="director" value="" placeholder="director" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    Agregar
+                </button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+    
+
+    <div class="col-md-7">
+        <table class="table table-bordered table-hover">
+         <thead>
+             <tr>
+                 <th>Num</th>
+                 <th>Nombre</th>
+                 <th>Estreno</th>
+                 <th>Taquilla</th>
+                 <th>Director</th>
+                 <th>Operations</th>
+             </tr>
+
+         </thead>
+         <tbody>
+        <% for(var i = 0; i < disneys.length; i++) { %>
+           <tr>
+               <td><%= i + 1 %></td>
+               <td><%= disneys[i].nombre %></td>
+               <td><%= disneys[i].estreno %></td>
+               <td><%= disneys[i].taquilla %></td>
+               <td><%= disneys[i].director %></td>
+               <td>
+                   <a href="/delete/<%= disneys[i]._id %>" class="btn btn-danger">delete</a>
+                   <a href="/edit/<%= disneys[i]._id %>" class="btn btn-info">edit</a>
+
+               </td>
+           </tr>
+       <% } %>
+         </tbody>
+        </table>
+
+
+    </div>
+</div>
+</div>
+
+
+    
+    <% include partials/_footer %>

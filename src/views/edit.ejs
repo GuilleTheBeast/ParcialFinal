@@ -1,0 +1,34 @@
+<% include partials/_header %>
+
+<div class="container">
+    <div class="row">
+            <div class="col-md-5 offset-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/edit/<%= disney._id %>" method="POST">
+                                <div class="form-group">
+                                    <input type="text" name="nombre" value="<%= disney.nombre %>" placeholder="nombre" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                        <input type="date" name="estreno" value="<%= disney.estreno %>" placeholder="fecha estreno" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                        <input type="number" name="taquilla" value="<%= disney.taquilla %>" placeholder="ganancia taquilla" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                        <input type="text" name="director" value="<%= disney.director %>" placeholder="director" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    Update
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                
+                </div>
+    </div>
+</div>
+
+    <% include partials/_footer %>
+
+    
